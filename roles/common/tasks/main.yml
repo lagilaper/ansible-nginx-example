@@ -9,9 +9,6 @@
 - name: Ensure all packages is updated
   yum: name=* state=latest
 
-- name: Ensure apache httpd is removed
-  yum: name=httpd state=absent
-
 - name: Ensure nginx is installed
   yum: name=http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm state=present
   notify: 
