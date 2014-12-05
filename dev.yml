@@ -1,0 +1,10 @@
+---
+- hosts: webservers
+  remote_user: vagrant
+  sudo: yes
+  vars_files:
+  - roles/common/vars/main.yml
+  handlers:
+  - include: roles/common/handlers/main.yml
+  tasks:
+  - include: roles/common/tasks/main.yml
