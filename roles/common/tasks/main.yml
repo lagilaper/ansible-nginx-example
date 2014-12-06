@@ -9,7 +9,14 @@
 - name: Ensure all packages is updated
   yum: name=* state=latest
 
+- name: Ensure nginx repo is added
+  command: rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
+  args:
+    creates: /etc/yum.repos.d/nginx.repo
+
 - name: Ensure nginx is installed
-  yum: name=http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm state=present
+  yum: name=nginx state=present
   notify: 
-  - restart nginx 
+  - start nginx 
+
+
